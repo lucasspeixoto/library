@@ -1,5 +1,6 @@
 import Carousel from '@comp/layout/HomePage/Carousel';
 import ExploreTopBooks from '@comp/layout/HomePage/ExploreTopBooks';
+import Heroes from '@comp/layout/HomePage/Heros';
 import Navbar from '@comp/layout/NavbarAndFooter/Navbar';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -17,6 +18,7 @@ const App = () => {
         <Navbar />
         <ExploreTopBooks />
         <Carousel />
+        <Heroes />
       </ThemeProvider>
     </React.Fragment>
   );
