@@ -8,6 +8,7 @@
     "paths": {
       "@assets/*": ["./assets/*"],
       "@comp/*": ["./components/*"],
+      "@layout/*": ["./components/layout/*"],
       "@contx/*": ["./contexts/*"],
       "@hooks/*": ["./hooks/*"],
       "@styles/*": ["./styles/*"],

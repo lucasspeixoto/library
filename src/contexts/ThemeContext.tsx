@@ -50,9 +50,7 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
     return localStorage.getItem('@library:theme');
   }, []);
 
-  const [theme, setTheme] = useState<ITheme>(
-    lastSelectedTheme === 'light' ? light : dark,
-  );
+  const [theme, setTheme] = useState<ITheme>(lastSelectedTheme === 'dark' ? dark : light);
 
   const toggleTheme = () => {
     if (theme.title === 'dark') {
@@ -64,9 +62,5 @@ export const ThemeProvider: React.FC<IThemeProvider> = ({ children }) => {
     }
   };
 
-  return (
-    <ThemeContext.Provider value={{ toggleTheme, theme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ toggleTheme, theme }}>{children}</ThemeContext.Provider>;
 };

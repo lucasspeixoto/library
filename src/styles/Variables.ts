@@ -20,7 +20,7 @@ const Variables = css`
     --white: #fff;
     --black: #000;
     --gray: #7f7f7f;
-    --blue: #057dcd;
+    --blue: #0e76a8;
 
     // Other
     --max-width: 1500px;

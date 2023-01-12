@@ -63,16 +63,16 @@ export default createGlobalStyle`
   }
 
   body::-webkit-scrollbar {
-		width: 15px;
+		width: 10px;
 	}
 
 	body::-webkit-scrollbar-thumb {
-		background-color: ${(props) => props.theme.colors.secondary};
+		background-color: #0e76a8;
 		border-radius: 20px;
 	}
 
 	body::-webkit-scrollbar-thumb:hover {
-		background-color: ${(props) => props.theme.colors.grey};
+		background-color: rgba(14, 118, 168, 0.7);
 	}
 
 `;

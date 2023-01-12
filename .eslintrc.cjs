@@ -33,7 +33,18 @@ module.exports = {
   ],
   plugins: ['simple-import-sort', 'prettier'],
   rules: {
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'prettier/prettier': [
+      'warn',
+      {
+        semi: true,
+        trailingComma: 'all',
+        singleQuote: true,
+        printWidth: 100,
+        tabWidth: 2,
+        endOfLine: 'auto',
+      },
+      { usePrettierrc: true },
+    ],
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/accessible-emoji': 'off',
     'react/prop-types': 'off',
@@ -41,13 +52,13 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'max-len': ['warn', { code: 80 }],
+    'max-len': ['warn', { code: 100 }],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton'],
+        aspects: ['noHref', 'invalidHref', 'preferButton'],
       },
     ],
   },

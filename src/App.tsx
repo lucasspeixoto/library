@@ -1,4 +1,6 @@
-import Header from '@comp/Header';
+import Carousel from '@comp/layout/HomePage/Carousel';
+import ExploreTopBooks from '@comp/layout/HomePage/ExploreTopBooks';
+import Navbar from '@comp/layout/NavbarAndFooter/Navbar';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -12,7 +14,9 @@ const App = () => {
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Header />
+        <Navbar />
+        <ExploreTopBooks />
+        <Carousel />
       </ThemeProvider>
     </React.Fragment>
   );
