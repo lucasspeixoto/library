@@ -1,6 +1,6 @@
-import HomePage from '@layout/HomePage/HomePage';
 import Footer from '@layout/NavbarAndFooter/Footer';
 import Navbar from '@layout/NavbarAndFooter/Navbar';
+import SearchBooksPage from '@layout/SearchBooksPage/SearchBooksPage';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -15,7 +15,8 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Navbar />
-        <HomePage />
+        {/* <HomePage /> */}
+        <SearchBooksPage />
         <Footer />
       </ThemeProvider>
     </>

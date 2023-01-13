@@ -3,8 +3,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import luv2code from '@assets/images/book-luv2code-1000.png';
-import newbook1 from '@assets/images/new-book-1.png';
-import newbook2 from '@assets/images/new-book-2.png';
+import SpinnerLoading from '@layout/Utils/SpinnerLoading';
 import Book from '@models/Book';
 import React, { useEffect, useState } from 'react';
 
@@ -12,7 +11,6 @@ import ReturnBook from './ReturnBook';
 
 const Carousel: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
-
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
 
@@ -43,11 +41,7 @@ const Carousel: React.FC = () => {
   }, []);
 
   if (isLoading) {
-    return (
-      <div className="container m-5">
-        <p>Loading...</p>
-      </div>
-    );
+    return <SpinnerLoading />;
   }
 
   if (httpError) {
