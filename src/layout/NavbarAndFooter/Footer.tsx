@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -10,14 +11,14 @@ const Footer: React.FC = () => {
         <p className="col-md-4 mb-0 text-white">@ Example Library App, Inc</p>
         <ul className="nav navbar-dark col-md-4 justify-content-end">
           <li className="nav-item">
-            <a className="nav-link px-2 text-white" href="#">
+            <NavLink className="nav-link px-2 text-white" to="/home">
               Home
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link px-2 text-white" href="#">
+            <NavLink className="nav-link px-2 text-white" to="/search">
               Search Books
-            </a>
+            </NavLink>
           </li>
         </ul>
       </footer>

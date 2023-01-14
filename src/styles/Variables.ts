@@ -16,6 +16,8 @@ const Variables = css`
     --fz-xxl: 22px;
 
     // Colors
+    --main: #0e76a8;
+
     --white: #fff;
     --black: #000;
     --gray: #7f7f7f;
