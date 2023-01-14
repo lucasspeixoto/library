@@ -1,4 +1,8 @@
-import SpinnerLoading from '@layout/Utils/SpinnerLoading';
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import Pagination from '@layout/Utils/components/Pagination';
+import SpinnerLoading from '@layout/Utils/components/SpinnerLoading';
+import { filters } from '@layout/Utils/constants/books-filters-options';
 import Book from '@models/Book';
 import React, { useEffect, useState } from 'react';
 
@@ -8,12 +12,27 @@ const SearchBooksPage: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
+  const [booksPerPage, setBooksPerPage] = useState(5);
+
+  const [totalAmountOfBooks, setTotalAmountOfBooks] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  const [searchUrl, setSearchUrl] = useState('');
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const fetchBooks = async () => {
       const baseUrl: string = 'http://localhost:8080/api/books';
 
-      const url = `${baseUrl}?page=0&size=5`;
+      let url;
+
+      if (searchUrl === '') {
+        url = `${baseUrl}?page=${currentPage - 1}&size=${booksPerPage}`;
+      } else {
+        url = baseUrl + searchUrl;
+      }
 
       const response = await fetch(url);
 
@@ -25,15 +44,19 @@ const SearchBooksPage: React.FC = () => {
 
       const responseData = responseJson._embedded.books as Book[];
 
+      setTotalAmountOfBooks(responseJson.page.totalElements);
+      setTotalPages(responseJson.page.totalPages);
       setBooks(responseData);
       setIsLoading(false);
     };
 
-    fetchBooks().catch((error: any) => {
+    fetchBooks().catch((error) => {
       setIsLoading(false);
       setHttpError(error.message);
     });
-  }, []);
+
+    window.scrollTo(0, 0);
+  }, [currentPage, searchUrl]);
 
   if (isLoading) {
     return <SpinnerLoading />;
@@ -47,6 +70,24 @@ const SearchBooksPage: React.FC = () => {
     );
   }
 
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  // eslint-disable-next-line no-unused-vars
+  let lastItem =
+    booksPerPage * currentPage <= totalAmountOfBooks
+      ? booksPerPage * currentPage
+      : totalAmountOfBooks;
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const searchHandleChange = () => {
+    if (search === '') {
+      setSearchUrl('');
+    } else {
+      setSearchUrl(`/search/findByTitleContaining?title=${search}&page=0&size=${booksPerPage}`);
+    }
+  };
+
   return (
     <div className="container">
       <div>
@@ -58,8 +99,11 @@ const SearchBooksPage: React.FC = () => {
                 type="search"
                 placeholder="Search"
                 aria-labelledby="Search"
+                onChange={(value) => setSearch(value.target.value)}
               />
-              <button className="btn btn-outline-success">Search</button>
+              <button className="btn btn-outline-success" onClick={() => searchHandleChange()}>
+                Search
+              </button>
             </div>
           </div>
 
@@ -75,45 +119,52 @@ const SearchBooksPage: React.FC = () => {
                 >
                   Category
                 </button>
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li>
-                    <a className="dropdowm-item" href="$">
-                      All
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdowm-item" href="$">
-                      Front End
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdowm-item" href="$">
-                      Back End
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdowm-item" href="$">
-                      Data
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdowm-item" href="$">
-                      DevOps
-                    </a>
-                  </li>
+                <ul className="dropdown-menu p-2" aria-labelledby="dropdownMenuButton1">
+                  {filters.map((option) => (
+                    <li key={option.index}>
+                      <a className={option.className} href="#">
+                        {option.title}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div className="mt-3">
-          <h5>Number of results: (22)</h5>
-        </div>
-        <p> 1 to 5 of 22 items:</p>
 
-        {books.map((book) => (
-          <SearchBook book={book} key={book.id} />
-        ))}
+        {totalAmountOfBooks > 0 ? (
+          <>
+            <div className="mt-3">
+              <h5>Number of results: ({totalAmountOfBooks})</h5>
+            </div>
+            <p>
+              {' '}
+              {indexOfFirstBook + 1} to {indexOfLastBook} of {totalAmountOfBooks} items:
+            </p>
+
+            {books.map((book) => (
+              <SearchBook book={book} key={book.id} />
+            ))}
+
+            {totalPages > 1 ? (
+              <Pagination currentPage={currentPage} totalPages={totalPages} paginate={paginate} />
+            ) : (
+              <></>
+            )}
+          </>
+        ) : (
+          <div className="d-flex align-items-center flex-column mt-5">
+            <h3>Can't find what you are looking for ?</h3>
+            <a
+              type="button"
+              href="#"
+              className="btn main-color btn-md px-4 me-md-2 fw-bold text-white"
+            >
+              Library Services
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

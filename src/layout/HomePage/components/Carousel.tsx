@@ -3,7 +3,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import luv2code from '@assets/images/book-luv2code-1000.png';
-import SpinnerLoading from '@layout/Utils/SpinnerLoading';
+import SpinnerLoading from '@layout/Utils/components/SpinnerLoading';
 import Book from '@models/Book';
 import React, { useEffect, useState } from 'react';
 

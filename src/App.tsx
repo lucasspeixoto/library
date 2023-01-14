@@ -11,15 +11,13 @@ const App: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Navbar />
-        {/* <HomePage /> */}
-        <SearchBooksPage />
-        <Footer />
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Navbar />
+      {/* <HomePage /> */}
+      <SearchBooksPage />
+      <Footer />
+    </ThemeProvider>
   );
 };
 

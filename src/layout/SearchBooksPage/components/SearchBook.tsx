@@ -15,6 +15,13 @@ const SearchBook: React.FC<{ book: Book }> = ({ book }) => {
               <img src={luv2code} width="151" height="233" alt="book" />
             )}
           </div>
+          <div className="d-lg-none d-flex justify-content-center align-items-center">
+            {book.img ? (
+              <img src={book.img} width="131" height="210" alt="book" />
+            ) : (
+              <img src={luv2code} width="131" height="210" alt="book" />
+            )}
+          </div>
         </div>
         <div className="col-md-6">
           <div className="card-body">
