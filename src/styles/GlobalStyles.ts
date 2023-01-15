@@ -10,8 +10,7 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+   
   }
 
   html {
@@ -68,7 +67,7 @@ export default createGlobalStyle`
 	}
 
 	body::-webkit-scrollbar-thumb {
-		background-color: #0e76a8;
+		background-color: var(--main);
 		border-radius: 20px;
 	}
 

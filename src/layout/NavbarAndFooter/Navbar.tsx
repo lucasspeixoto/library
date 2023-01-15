@@ -2,7 +2,7 @@
 /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
@@ -23,14 +23,14 @@ const Navbar: React.FC = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink className="nav-link px-2 text-white" to="home">
+              <Link className="nav-link px-2 text-white" to="home">
                 Home
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link px-2 text-white" to="search">
+              <Link className="nav-link px-2 text-white" to="search">
                 Search Books
-              </NavLink>
+              </Link>
             </li>
           </ul>
 

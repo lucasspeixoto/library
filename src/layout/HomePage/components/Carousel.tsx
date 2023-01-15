@@ -6,6 +6,7 @@ import luv2code from '@assets/images/book-luv2code-1000.png';
 import SpinnerLoading from '@layout/Utils/components/SpinnerLoading';
 import Book from '@models/Book';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import ReturnBook from './ReturnBook';
 
@@ -129,9 +130,9 @@ const Carousel: React.FC = () => {
         </div>
       </div>
       <div className="homepage-carousel-title mt-3">
-        <a className="btn btn-outline-secondary btn-lg" href="#">
+        <Link className="btn btn-outline-secondary btn-lg" to="/search">
           View More
-        </a>
+        </Link>
       </div>
     </div>
   );

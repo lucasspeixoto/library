@@ -2,23 +2,23 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
     <div className="main-color fixed-bottom">
       <footer className="container d-flex flex-wrap justify-content-between align-items-center py-5 main-color">
-        <p className="col-md-4 mb-0 text-white">@ Example Library App, Inc</p>
+        <p className="col-md-4 mb-0 text-white">@Library App, Inc</p>
         <ul className="nav navbar-dark col-md-4 justify-content-end">
           <li className="nav-item">
-            <NavLink className="nav-link px-2 text-white" to="/home">
+            <Link className="nav-link px-2 text-white" to="/home">
               Home
-            </NavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link px-2 text-white" to="/search">
+            <Link className="nav-link px-2 text-white" to="/search">
               Search Books
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </footer>
