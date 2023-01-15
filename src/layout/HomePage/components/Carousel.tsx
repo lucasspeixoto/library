@@ -3,7 +3,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import luv2code from '@assets/images/book-luv2code-1000.png';
-import SpinnerLoading from '@layout/Utils/components/SpinnerLoading';
+import Spinner from '@layout/Utils/components/Spinner';
 import Book from '@models/Book';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -42,7 +42,7 @@ const Carousel: React.FC = () => {
   }, []);
 
   if (isLoading) {
-    return <SpinnerLoading />;
+    return <Spinner />;
   }
 
   if (httpError) {

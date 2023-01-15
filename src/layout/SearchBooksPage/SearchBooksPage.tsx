@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import Pagination from '@layout/Utils/components/Pagination';
-import SpinnerLoading from '@layout/Utils/components/SpinnerLoading';
+import Spinner from '@layout/Utils/components/Spinner';
 import { categories, Category, filters } from '@layout/Utils/constants/books-filters-options';
 import Book from '@models/Book';
 import React, { useEffect, useState } from 'react';
@@ -95,7 +95,7 @@ const SearchBooksPage: React.FC = () => {
 
   //! --------------------------------- Components Handler ---------------------------------
   if (isLoading) {
-    return <SpinnerLoading />;
+    return <Spinner />;
   }
 
   if (httpError) {

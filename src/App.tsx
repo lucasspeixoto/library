@@ -1,5 +1,6 @@
 import Footer from '@layout/NavbarAndFooter/Footer';
 import Navbar from '@layout/NavbarAndFooter/Navbar';
+import { LayoutContainer, RoutesContainer } from '@styles/wrappers';
 import { Routes } from 'config/routes';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -12,10 +13,14 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Navbar />
-      <Routes />
-      <Footer />
+      <LayoutContainer>
+        <GlobalStyles />
+        <Navbar />
+        <RoutesContainer>
+          <Routes />
+        </RoutesContainer>
+        <Footer />
+      </LayoutContainer>
     </ThemeProvider>
   );
 };
