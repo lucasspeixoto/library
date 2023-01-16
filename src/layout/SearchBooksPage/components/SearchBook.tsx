@@ -2,8 +2,11 @@
 import luv2code from '@assets/images/book-luv2code-1000.png';
 import Book from '@models/Book';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchBook: React.FC<{ book: Book }> = ({ book }) => {
+  const viewDetailRoute = `/checkout/${book.id}`;
+
   return (
     <div className="card mt-3 shadow p-3 mb-3 bg-body rounded">
       <div className="row g-0">
@@ -31,9 +34,9 @@ const SearchBook: React.FC<{ book: Book }> = ({ book }) => {
           </div>
         </div>
         <div className="col-md-4 d-flex justify-content-center align-items-center">
-          <a className="btn btn-md main-color text-white" href="#">
+          <Link className="btn btn-md main-color text-white" to={viewDetailRoute}>
             View Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
