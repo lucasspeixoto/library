@@ -55,7 +55,7 @@ const BookCheckoutPage = () => {
 
   return (
     <React.Fragment>
-      <div className="container d-none d-lg-block">
+      <div className="container d-none d-xxl-block">
         <div className="row mt-5 g-1">
           <div className="col-sm-2 col-md-2">
             {book?.img ? (
@@ -76,7 +76,7 @@ const BookCheckoutPage = () => {
           <hr />
         </div>
       </div>
-      <div className="container d-lg-none mt-5">
+      <div className="container d-xxl-none mt-5">
         <div className="d-flex justify-content-center align-items-center">
           {book?.img ? (
             <img src={book.img} width="226" height="349" alt="book" />

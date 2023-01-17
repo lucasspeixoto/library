@@ -9,7 +9,7 @@ const CheckoutAndReviewBox: React.FC<CheckoutAndReviewBoxProps> = ({ book, mobil
   const bookIsAvailable = book && book.copiesAvailable && book.copiesAvailable > 0;
 
   return (
-    <div className={mobile ? 'card d-flex mt-5' : 'card col-3 container d-flex mb-5'}>
+    <div className={mobile ? 'card d-flex mt-5' : 'card col-4 container d-flex mb-5'}>
       <div className="card-body container">
         <div className="mt-3">
           <p>
@@ -39,7 +39,7 @@ const CheckoutAndReviewBox: React.FC<CheckoutAndReviewBoxProps> = ({ book, mobil
         </Link>
         <hr />
         <p className="mt-3">This number can change until placing order has been complete.</p>
-        <p>Sign in to ble able to leave a review</p>
+        <p>Sign in to be able to leave a review</p>
       </div>
     </div>
   );
