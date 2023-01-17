@@ -35,7 +35,7 @@ const Carousel: React.FC = () => {
       setIsLoading(false);
     };
 
-    fetchBooks().catch((error: any) => {
+    fetchBooks().catch((error) => {
       setIsLoading(false);
       setHttpError(error.message);
     });
@@ -52,6 +52,7 @@ const Carousel: React.FC = () => {
       </div>
     );
   }
+
   return (
     <div className="container mt-5" style={{ height: 550 }}>
       <div className="homepage-carousel-title">

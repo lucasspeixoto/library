@@ -5,8 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SearchBook: React.FC<{ book: Book }> = ({ book }) => {
-  const viewDetailRoute = `/checkout/${book.id}`;
-
   return (
     <div className="card mt-3 shadow p-3 mb-3 bg-body rounded">
       <div className="row g-0">
@@ -34,7 +32,7 @@ const SearchBook: React.FC<{ book: Book }> = ({ book }) => {
           </div>
         </div>
         <div className="col-md-4 d-flex justify-content-center align-items-center">
-          <Link className="btn btn-md main-color text-white" to={viewDetailRoute}>
+          <Link className="btn btn-md main-color text-white" to={`/checkout/${book.id}`}>
             View Details
           </Link>
         </div>

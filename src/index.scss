@@ -17,7 +17,15 @@
 }
 
 .main-color {
-  background-color: #0e76a8;
+  background-color: var(--main);
+  opacity: .8;
+}
+
+.btn {
+  opacity: 0.9;
+  &:hover {
+  opacity: 1;
+}
 }
 
 .col-image-left {
