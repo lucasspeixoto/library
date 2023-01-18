@@ -5,14 +5,14 @@
 import Pagination from '@layout/Utils/components/Pagination';
 import Spinner from '@layout/Utils/components/Spinner';
 import { categories, Category, filters } from '@layout/Utils/constants/books-filters-options';
-import Book from '@models/Book';
+import TBook from '@models/Book';
 import React, { useEffect, useState } from 'react';
 
 import SearchBook from './components/SearchBook';
 
 const SearchBooksPage: React.FC = () => {
   //! --------------------------------- States ---------------------------------
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<TBook[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,7 +48,7 @@ const SearchBooksPage: React.FC = () => {
 
       const responseJson = await response.json();
 
-      const responseData = responseJson._embedded.books as Book[];
+      const responseData = responseJson._embedded.books as TBook[];
 
       setTotalAmountOfBooks(responseJson.page.totalElements);
       setTotalPages(responseJson.page.totalPages);

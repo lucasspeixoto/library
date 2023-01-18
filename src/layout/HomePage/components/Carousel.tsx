@@ -4,14 +4,14 @@
 
 import luv2code from '@assets/images/book-luv2code-1000.png';
 import Spinner from '@layout/Utils/components/Spinner';
-import Book from '@models/Book';
+import TBook from '@models/Book';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import ReturnBook from './ReturnBook';
 
 const Carousel: React.FC = () => {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<TBook[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
 
@@ -29,7 +29,7 @@ const Carousel: React.FC = () => {
 
       const responseJson = await response.json();
 
-      const responseData = responseJson._embedded.books as Book[];
+      const responseData = responseJson._embedded.books as TBook[];
 
       setBooks(responseData);
       setIsLoading(false);

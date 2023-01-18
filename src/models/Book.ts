@@ -1,4 +1,4 @@
-class Book {
+class TBook {
   public id: number;
   public title: string;
   public author?: string;
@@ -29,4 +29,4 @@ class Book {
   }
 }
 
-export default Book;
+export default TBook;

@@ -11,7 +11,9 @@
       "@contx/*": ["./contexts/*"],
       "@hooks/*": ["./hooks/*"],
       "@styles/*": ["./styles/*"],
-      "@models/*": ["./models/*"]
+      "@models/*": ["./models/*"],
+      "@utils/*": ["./utils/*"],
+
     },
     "skipLibCheck": true,
     "esModuleInterop": false,
